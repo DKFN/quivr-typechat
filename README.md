@@ -1,4 +1,4 @@
-# quivr-typechat : Use typechat with your Quivr instance !
+# quivr-typechat : Use typechat with your Quivr instance
 
 ## Introduction
 
@@ -8,22 +8,13 @@ My research goal is to use Quivr in the middle of the LLM to use the Knowledge B
 
 It is also a great way to use Typechat with not yet officially supported models like GPT4ALL / VertexAI / Anthropic using Quivr as an abstraction layer !
 
-Contributions and ideas are very welcome !
-
-## Planned features
-- [] Handle retries like specified by Typechat
-- [] Ability to set a brain per model
-- [] Leverage the knowledge base when using Quivr
-- [] Remove code duplication when more tooling would be available publicly
-- [] Make verbosity optional instead of default
-- [] Make Quivr endpoint available via environnement variable
-- [] Tests ! (Forgive me, it's 2:35 and I could not have guessed it would have been so fun to tinker with :D )
+Contributions and ideas are very welcome
 
 ## Installation
 
-The package is available on NPM
+The package is available on [NPM](https://www.npmjs.com/package/quivr-typechat)
 You can install it using NPM or your favorite package manager, example:
-```
+```sh
 npm install --save quivr-typechat
 ```
 
@@ -33,12 +24,16 @@ On your code replace the Typechat `createLanguageModel` function with `createQui
 Instead of
 
 ```ts
+import {createLanguageModel} from "typechat";
+
 const model = createLanguageModel(process.env);
 ```
 
 Use
 ```ts
-const model = createQuivrLanguageModel(process.env)
+import {createQuivrLanguageModel} from "quivr-typechat";
+
+const model = createQuivrLanguageModel(process.env);
 ```
 
 You will need to define two new variables in the .env file or in the environnement:
@@ -56,11 +51,18 @@ const model = createQuivrLanguageModel(process.env, {
 });
 ```
 
-I hope this plugin would be as usefull for you as it is for me ! :)
+I hope this plugin would be as usefullfor you as it is for me ! :)
 
 ## Notice
 
-This is an experimental plugin on top on an experimental library, it's fun to mess with it, but I don't getting it close to your production !
+This is an experimental plugin on top on an experimental library, it's fun to mess with it, but don't put it anywhere near your production !
 
-
-
+## Planned features
+- [ ] Handle retries like specified by Typechat
+- [ ] Ability to set a brain per model
+- [ ] Leverage the knowledge base when using Quivr
+- [ ] Remove code duplication when more tooling would be available publicly
+- [ ] Make verbosity optional instead of default
+- [ ] Make Quivr endpoint available via environnement variable
+- [ ] Tests ! (Forgive me, it's 2:35 and I could not have guessed it would have been so fun to tinker with :D )
+- [ ] Build and publish on NPM on main commit with code changes
